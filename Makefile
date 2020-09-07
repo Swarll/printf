@@ -1,0 +1,61 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/19 16:11:43 by grigaux           #+#    #+#              #
+#    Updated: 2020/04/22 12:36:02 by Guillaume        ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+LIBFT_ROOT = ./libft
+
+LIB = ar -rc
+RM = rm -f
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+
+NAME = libftprintf.a
+
+SRCS = c_conversion.c ft_printf.c i_conversion.c p_conversion.c s_conversion.c \
+	  t_x_conversion.c u_conversion.c u_x_conversion.c other_functions.c ft_utoa.c \
+	  ft_tiny_xtoa.c ft_upper_xtoa.c ft_ptoa.c ft_percent_convers.c x_conv.c iu_conv.c \
+	  sp_conv.c ft_c_handler.c ft_flags_handler.c i_conversion2.c u_conversion2.c \
+	  x_conv2.c
+
+OBJS = $(SRCS:.c=.o)
+INCLUDE = ft_printf.h
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS) $(INCLUDE)
+				cp $(LIBFT_ROOT)/libft.a $(NAME)
+					$(LIB) $(NAME) $(OBJS)
+
+%.o:		%.c
+			$(CC) $(CFLAGS) -c -o $@ $<
+
+clean:
+			$(RM) $(OBJS)  $(BONUSOBJS)
+
+fclean: 	clean
+			$(RM) $(NAME)
+
+re: 		fclean all
+
+libft_all:
+		$(MAKE) -C $(LIBFT_ROOT) all
+
+libft_bonus:
+		$(MAKE) -C $(LIBFT_ROOT) bonus
+
+libft_clean:
+		$(MAKE) -C $(LIBFT_ROOT) clean
+
+libft_fclean:
+		$(MAKE) -C $(LIBFT_ROOT) fclean
+
+.PHONY:		all clean fclean re
