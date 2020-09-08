@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 11:13:08 by grigaux           #+#    #+#             */
-/*   Updated: 2020/04/22 12:35:56 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/08 18:19:40 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char			*ft_tx_convers(unsigned long long nbr, t_flags *flags);
 char			*ft_ux_convers(unsigned long long nbr, t_flags *flags);
 int				get_numbers(const char **str);
 void			initialize_flags(t_flags *flags);
-void			ft_free(char **to_free);
+void			*ft_free(char **to_free);
 char			*ft_utoa(unsigned int nbr);
 char			*ft_tiny_xtoa(unsigned long long nbr);
 char			*ft_upper_xtoa(unsigned long long nbr);

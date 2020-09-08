@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   i_conversion.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:50:33 by grigaux           #+#    #+#             */
-/*   Updated: 2020/04/22 12:31:42 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/08 18:26:37 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,19 +102,13 @@ char	*ft_i_convers2(char *conv, t_flags *flags, int neg)
 	if ((flags->wide) && (flags->wide > flags->precision))
 	{
 		if (!(res = malloc(sizeof(char) * (flags->wide) + 1)))
-		{
-			ft_free(&conv);
-			return (NULL);
-		}
+			return (ft_free(&conv));
 		res[flags->wide] = '\0';
 	}
 	else
 	{
 		if (!(res = malloc(sizeof(char) * (flags->precision + neg) + 1)))
-		{
-			ft_free(&conv);
-			return (NULL);
-		}
+			return (ft_free(&conv));
 		res[flags->precision + neg] = '\0';
 	}
 	return (res);
@@ -135,12 +129,12 @@ char	*ft_i_convers(int i, t_flags *flags)
 		(size <= flags->wide || size <= flags->precision))
 	{
 		if (!(res = ft_i_convers2(conv, flags, neg)))
-			return (NULL);
+			return (ft_free(&conv));
 		res = ft_i_convers3(res, flags, size, conv);
 		ft_free(&conv);
 	}
 	else if (!(flags->precision_defined == 1 && flags->precision == 0)
-		|| flags->precision == 0)
+		|| (flags->precision == 0 && flags->wide != 0))
 		res = conv;
 	else
 		res = ft_strdup("");

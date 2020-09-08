@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   u_x_conversion.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:22:56 by grigaux           #+#    #+#             */
-/*   Updated: 2020/04/21 20:00:58 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/08 17:56:17 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ char	*ft_ux_convers(unsigned long long nbr, t_flags *flags)
 		if (!(res = common_x_conv(flags, size, conv)))
 			return (NULL);
 	}
-	else if (!(flags->precision_defined == 1 &&
-		flags->precision == 0) || flags->precision == 0)
+	else if (!(flags->precision_defined == 1 && flags->precision == 0)
+		|| (flags->precision == 0 && flags->wide != 0))
 		res = conv;
 	else
 		res = ft_strdup("");

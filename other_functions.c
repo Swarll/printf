@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   other_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 15:53:41 by grigaux           #+#    #+#             */
-/*   Updated: 2020/04/21 19:24:12 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/08 18:19:52 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,11 @@ int		get_numbers(const char **str)
 	return (res);
 }
 
-void	ft_free(char **to_free)
+void	*ft_free(char **to_free)
 {
 	free(*to_free);
 	*to_free = NULL;
+	return (NULL);
 }
 
 void	initialize_flags(t_flags *flags)

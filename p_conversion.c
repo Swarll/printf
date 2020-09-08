@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   p_conversion.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:23:15 by grigaux           #+#    #+#             */
-/*   Updated: 2020/04/21 19:33:39 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/08 18:30:40 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,13 @@ char	*ft_p_convers4(t_flags *flags, char *conv, int size)
 	if (flags->wide > size)
 	{
 		if (!(res = malloc(sizeof(char) * flags->wide + 1)))
-		{
-			ft_free(&conv);
-			return (NULL);
-		}
+			return(ft_free(&conv));
 		res[flags->wide] = '\0';
 	}
 	else
 	{
 		if (!(res = malloc(sizeof(char) * size + 1)))
-		{
-			ft_free(&conv);
-			return (NULL);
-		}
+			return (ft_free(&conv));
 		res[size] = '\0';
 	}
 	return (ft_p_convers5(flags, conv, res, size));
@@ -64,10 +58,7 @@ char	*ft_p_convers3(t_flags *flags, char *conv, int size)
 	{
 		size = flags->precision;
 		if (!(res = malloc(sizeof(char) * size + 1)))
-		{
-			ft_free(&conv);
-			return (NULL);
-		}
+			return (ft_free(&conv));
 		res[size] = '\0';
 		res = sp_fill_left(res, conv, size);
 		ft_free(&conv);
@@ -86,10 +77,7 @@ char	*ft_p_convers2(t_flags *flags, char *conv, int size)
 		else
 		{
 			if (!(res = malloc(sizeof(char) * (flags->wide + 1))))
-			{
-				ft_free(&conv);
-				return (NULL);
-			}
+				return (ft_free(&conv));
 			res[flags->wide] = '\0';
 			res = sp_fill_wide(res, flags);
 			if (flags->left_justified == 1)

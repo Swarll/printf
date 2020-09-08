@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_x_conversion.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:22:51 by grigaux           #+#    #+#             */
-/*   Updated: 2020/04/21 19:59:00 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/08 17:54:51 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_tx_convers(unsigned long long nbr, t_flags *flags)
 			return (NULL);
 	}
 	else if (!(flags->precision_defined == 1 && flags->precision == 0)
-		|| flags->precision == 0)
+		|| (flags->precision == 0 && flags->wide != 0))
 		res = conv;
 	else
 		res = ft_strdup("");

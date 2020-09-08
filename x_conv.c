@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   x_conv.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 11:37:03 by Guillaume         #+#    #+#             */
-/*   Updated: 2020/04/22 12:35:37 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/08 18:32:42 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,19 +84,13 @@ char	*common_x_conv2(t_flags *flags, char *conv)
 	if ((flags->wide) && (flags->wide > flags->precision))
 	{
 		if (!(res = malloc(sizeof(char) * (flags->wide + 1))))
-		{
-			ft_free(&conv);
-			return (NULL);
-		}
+			return (ft_free(&conv));
 		res[flags->wide] = '\0';
 	}
 	else
 	{
 		if (!(res = malloc(sizeof(char) * (flags->precision + 1))))
-		{
-			ft_free(&conv);
-			return (NULL);
-		}
+			return (ft_free(&conv));
 		res[flags->precision] = '\0';
 	}
 	return (res);
