@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:23:15 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/08 18:30:40 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/08 19:18:43 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_p_convers4(t_flags *flags, char *conv, int size)
 	if (flags->wide > size)
 	{
 		if (!(res = malloc(sizeof(char) * flags->wide + 1)))
-			return(ft_free(&conv));
+			return (ft_free(&conv));
 		res[flags->wide] = '\0';
 	}
 	else
