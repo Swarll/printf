@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   i_conversion.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:50:33 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/09 11:34:09 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/11 11:24:37 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,13 @@ char	*ft_i_convers2(char *conv, t_flags *flags, int neg)
 		neg = 1;
 	if ((flags->wide) && (flags->wide > flags->precision))
 	{
-		if (!(res = malloc(sizeof(char) * (flags->wide) + 1)))
+		if (!(res = malloc(sizeof(char) * (flags->wide))))
 			return (ft_free(&conv));
 		res[flags->wide] = '\0';
 	}
 	else
 	{
-		if (!(res = malloc(sizeof(char) * (flags->precision + neg) + 1)))
+		if (!(res = malloc(sizeof(char) * (flags->precision + neg))))
 			return (ft_free(&conv));
 		res[flags->precision + neg] = '\0';
 	}
@@ -133,7 +133,7 @@ char	*ft_i_convers(int i, t_flags *flags)
 		res = ft_i_convers3(res, flags, size, conv);
 		ft_free(&conv);
 	}
-	else if (!(flags->precision_defined == 1 && flags->precision == 0) || (flags
+	else if (!(flags->precision_defined == 1 && flags->precision == 0 && flags->precision_star == 0) || (flags
 ->precision == 0 && (flags->left_justified == 1 || flags->zero_filled == 1)))
 		res = conv;
 	else

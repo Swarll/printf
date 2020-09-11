@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   p_conversion.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:23:15 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/09 11:34:48 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/11 12:05:53 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,17 @@ char	*ft_p_convers3(t_flags *flags, char *conv, int size)
 
 	if (flags->precision > size)
 		res = conv;
-	else if (flags->precision == 0)
+	else if (flags->precision == 0 && !conv)
 	{
 		ft_free(&conv);
 		res = ft_strdup("0x");
 	}
 	else
 	{
-		size = flags->precision;
+		if (flags->precision)
+			size = flags->precision;
+		else
+			size = ft_strlen(conv);
 		if (!(res = malloc(sizeof(char) * size + 1)))
 			return (ft_free(&conv));
 		res[size] = '\0';
