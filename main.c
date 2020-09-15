@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 09:22:51 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/15 12:07:48 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/15 13:07:48 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 
 int main()
 {
-    printf("PRINTF   : %*cu5rTiqJP\n", -2, '\0');
-    ft_printf("FT_PRINTF: %*cu5rTiqJP\n", -2, '\0');
-    // printf("PRINTF   : %-166c%--144.i%0116.*%%--43.168x%--*.182x\n" ,59,-2063864019,-95,1443835968u,-142,4155581889u);
-    // ft_printf("FT_PRINTF: %-166c%--144.i%0116.*%%--43.168x%--*.182x\n" ,59,-2063864019,-95,1443835968u,-142,4155581889u);
-    // printf("PRINTF   : %--126.151i%0025.60x%-121.199s%-160.15d\n" ,1575028144,1677685433u,"8~c{[mq=x$M0EGc",-1836627900);
-    // ft_printf("FT_PRINTF: %--126.151i%0025.60x%-121.199s%-160.15d\n" ,1575028144,1677685433u,"8~c{[mq=x$M0EGc",-1836627900);
+    // printf("PRINTF   : %*cu5rTiqJP\n", -2, '\0');
+    // ft_printf("FT_PRINTF: %*cu5rTiqJP\n", -2, '\0');
+    // printf("PRINTF   : NzgtB%cbsP7zBW0hRKZNo%-10iydBBFhX\n", '\0', -2147483647);
+    // ft_printf("FT_PRINTF: NzgtB%cbsP7zBW0hRKZNo%-10iydBBFhX\n", '\0', -2147483647);
+    // printf("PRINTF   : 7U3cCB75Qjv%c%0xHGl0i\n", '\0', 0);
+    // ft_printf("FT_PRINTF: 7U3cCB75Qjv%c%0xHGl0i\n", '\0', 0);
+    // printf("PRINTF   : {%3c}\n", '\0');
+    // ft_printf("FT_PRINTF: {%3c}\n", '\0');
+    // printf("PRINTF   : {%-3c}\n", 0);
+    // ft_printf("FT_PRINTF: {%-3c}\n", 0);
+    
 }
