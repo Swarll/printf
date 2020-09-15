@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 15:53:41 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/15 10:59:46 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/15 11:04:51 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ int		put_str(char **str, int choice)
 		write(1, &**str, 1);
 		++*str;
 		count++;
-	}
-	if (choice == 1 && ++**str)
-	{
-		count = put_str(str, choice);
 	}
 	return (count);
 }

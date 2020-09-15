@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c_conversion.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:23:02 by grigaux           #+#    #+#             */
-/*   Updated: 2020/04/21 19:07:01 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/15 12:29:49 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ char	*fill_wide(char *res, int i)
 char	*ft_c_convers(int c, t_flags *flags, char ***str)
 {
 	char	*res;
-
-	if (c == 0)
+	
+	if (!c && (flags->wide == 0 || flags->left_justified == 1 || c == 0))
+	{
 		**str = NULL;
+	}
 	if (flags->wide != 0)
 	{
 		if (!(res = malloc(sizeof(char) * (flags->wide + 1))))
@@ -44,7 +46,7 @@ char	*ft_c_convers(int c, t_flags *flags, char ***str)
 		if (!(res = malloc(sizeof(char) * (2))))
 			return (NULL);
 		res[0] = c;
-		res[1] = '\0';
+		res[1] = 0;
 	}
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 17:02:00 by Guillaume         #+#    #+#             */
-/*   Updated: 2020/09/15 10:05:48 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/15 11:04:55 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_printf2(t_flags *flags, const char *str, va_list vl)
 	int		count;
 
 	count = 0;
-	while (str && *str && *str != '\0')
+	while (str && *str)
 	{
 		initialize_flags(flags);
 		if (*str)
