@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:50:33 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/11 11:24:37 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/15 10:57:19 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,8 @@ char	*ft_i_convers(int i, t_flags *flags)
 		res = ft_i_convers3(res, flags, size, conv);
 		ft_free(&conv);
 	}
-	else if (!(flags->precision_defined == 1 && flags->precision == 0 && flags->precision_star == 0) || (flags
-->precision == 0 && (flags->left_justified == 1 || flags->zero_filled == 1)))
+	else if ((flags->precision_defined == 0 || flags->precision != 0 || (flags->precision_star == 1 && conv[0] != '0')) || (flags
+->precision == 0 && (flags->left_justified == 1 || flags->zero_filled == 1 || flags->precision_written == 1) && conv[0] != '0'))
 		res = conv;
 	else
 		res = ft_strdup("");

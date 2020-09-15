@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:23:15 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/11 12:11:53 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/15 10:13:33 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_p_convers3(t_flags *flags, char *conv, int size)
 
 	if (flags->precision > size)
 		res = conv;
-	else if (flags->precision == 0 && !conv)
+	else if (flags->precision == 0 && !ft_strncmp(conv, "0x0", 3))
 	{
 		ft_free(&conv);
 		res = ft_strdup("0x");
@@ -108,9 +108,7 @@ char	*ft_p_convers(void *ptr, t_flags *flags)
 	unsigned long long	nbr;
 
 	nbr = (unsigned long long)ptr;
-	if ((!nbr && (!(conv = ft_strdup("0x0")))))
-		return (NULL);
-	else if (!(conv = ft_ptoa(nbr)))
+	if (!(conv = ft_ptoa(nbr)))
 		return (NULL);
 	if ((size = ft_strlen(conv)) && ((flags->precision_defined == 0 && flags->
 	wide != 0) || (flags->wide == 0 && flags->precision_defined == 1)))

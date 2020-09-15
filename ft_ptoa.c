@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ptoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 17:59:36 by Guillaume         #+#    #+#             */
-/*   Updated: 2020/04/21 19:17:56 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/15 10:57:13 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ char	*ft_ptoa(unsigned long long nbr)
 {
 	char		*res;
 	int			size;
-
+	if (!nbr)
+		return (ft_strdup("0x0"));
 	size = ptoa_int_size(nbr);
 	if (!(res = malloc(size * sizeof(char) + 3)))
 		return (NULL);

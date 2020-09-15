@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flags_handler.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 16:05:23 by Guillaume         #+#    #+#             */
-/*   Updated: 2020/09/09 10:24:24 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/15 10:09:53 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,11 @@ t_flags	*flags_handler3(const char **str, t_flags *flags, va_list vl)
 			++*str;
 		}
 		else
+		{
+			if (**str >= '0' && **str <= '9')
+				flags->precision_written = 1;
 			flags->precision = get_numbers(&*str);
+		}
 		if (!flags->precision)
 			flags->precision = 0;
 	}

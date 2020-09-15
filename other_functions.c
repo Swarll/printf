@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   other_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 15:53:41 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/09 10:24:42 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/15 10:59:46 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ int		put_str(char **str, int choice)
 		write(1, &**str, 1);
 		++*str;
 		count++;
+	}
+	if (choice == 1 && ++**str)
+	{
+		count = put_str(str, choice);
 	}
 	return (count);
 }
@@ -61,4 +65,5 @@ void	initialize_flags(t_flags *flags)
 	flags->precision = 0;
 	flags->precision_defined = 0;
 	flags->precision_star = 0;
+	flags->precision_written = 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 11:13:08 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/09 11:09:36 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/15 10:06:02 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_flags
 	int			precision;
 	int			precision_defined;
 	int			precision_star;
+	int			precision_written;
 }				t_flags;
 
 int				ft_printf(const char *str, ...);

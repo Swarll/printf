@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Guillaume <Guillaume@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 17:02:00 by Guillaume         #+#    #+#             */
-/*   Updated: 2020/09/09 10:24:37 by Guillaume        ###   ########.fr       */
+/*   Updated: 2020/09/15 10:05:48 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_printf(const char *str, ...)
 	t_flags		*flags;
 	int			count;
 
-	if (!(flags = malloc(sizeof(int) * 6)))
+	if (!(flags = malloc(sizeof(int) * 7)))
 		return (0);
 	va_start(vl, str);
 	count = ft_printf2(flags, str, vl);
