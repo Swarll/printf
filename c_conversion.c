@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:23:02 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/15 12:29:49 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/16 12:33:26 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,8 @@ char	*ft_c_convers(int c, t_flags *flags, char ***str)
 {
 	char	*res;
 	
-	if (!c && (flags->wide == 0 || flags->left_justified == 1 || c == 0))
-	{
+	if (!c)
 		**str = NULL;
-	}
 	if (flags->wide != 0)
 	{
 		if (!(res = malloc(sizeof(char) * (flags->wide + 1))))

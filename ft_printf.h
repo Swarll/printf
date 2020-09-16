@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 11:13:08 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/15 11:49:12 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/16 11:55:56 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,6 @@ int				calcul_i(t_flags *flags, int size, char *conv);
 char			*i_fill_res(char *res, char *conv, t_flags *flags, int size);
 char			*u_fill_res(char *res, char *conv, int i, t_flags *flags);
 char			*x_fill_res(char *res, char *conv, int i, t_flags *flags);
+char			*other_conv(t_flags	*flags, char *conv);
+
 #endif

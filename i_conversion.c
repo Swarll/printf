@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:50:33 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/15 12:29:41 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/16 15:47:52 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*i_fill_res_left(char *res, char *conv, t_flags *flags, int size)
 	int j;
 	int neg;
 
+	neg = 0;
 	if (conv[0] == '-')
 		neg = 1;
 	j = 0;
@@ -51,13 +52,13 @@ char	*i_fill_precision(char *res, int i, int neg, t_flags *flags)
 	{
 		i = flags->wide - i - neg;
 		wide -= 2;
-		while (i < wide)
+		while (res[i] && i < wide)
 			res[i++] = '0';
 	}
 	else if (wide > i && flags->left_justified == 0)
 	{
 		i = wide - i;
-		while (i < wide)
+		while (res[i] && i < wide)
 			res[i++] = '0';
 	}
 	else
@@ -133,10 +134,7 @@ char	*ft_i_convers(int i, t_flags *flags)
 		res = ft_i_convers3(res, flags, size, conv);
 		ft_free(&conv);
 	}
-	else if ((flags->precision_defined == 0 || flags->precision != 0 || (flags->precision_star == 1 && conv[0] != '0')) || (flags
-->precision == 0 && (flags->left_justified == 1 || flags->zero_filled == 1 || flags->precision_written == 1) && conv[0] != '0'))
-		res = conv;
 	else
-		res = ft_strdup("");
+		res = other_conv(flags, conv);
 	return (res);
 }

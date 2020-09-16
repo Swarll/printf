@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 15:53:41 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/15 11:04:51 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/16 14:52:20 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int		put_str(char **str, int choice)
 	int count;
 
 	count = 0;
-	while (choice == 0 && **str && **str != '%')
+	while (choice == 0 && *str && **str && **str != '%')
 	{
 		write(1, &**str, 1);
 		++*str;
 		count++;
 	}
-	while (choice == 1 && **str)
+	while (choice == 1 && *str && **str)
 	{
 		write(1, &**str, 1);
 		++*str;
@@ -62,4 +62,18 @@ void	initialize_flags(t_flags *flags)
 	flags->precision_defined = 0;
 	flags->precision_star = 0;
 	flags->precision_written = 0;
+}
+
+char	*other_conv(t_flags	*flags, char *conv)
+{
+	char	*res;
+
+	if (conv[0] == '0' && flags->precision_defined == 1)
+	{
+		ft_free(&conv);
+		res = ft_strdup("");
+	}
+	else
+		res = conv;
+	return (res);
 }

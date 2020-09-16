@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:23:34 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/15 10:11:58 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/16 11:56:50 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,10 +125,7 @@ char	*ft_u_convers(unsigned int nbr, t_flags *flags)
 		if (!(res = ft_u_convers2(flags, size, conv)))
 			return (NULL);
 	}
-	else if ((flags->precision_defined == 0 || flags->precision != 0 || (flags->precision_star == 1 && conv[0] != '0')) || (flags
-->precision == 0 && (flags->left_justified == 1 || flags->zero_filled == 1 || flags->precision_written == 1) && conv[0] != '0'))
-		res = conv;
 	else
-		res = ft_strdup("");
+		res = other_conv(flags, conv);
 	return (res);
 }
