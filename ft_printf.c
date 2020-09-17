@@ -6,16 +6,35 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 17:02:00 by Guillaume         #+#    #+#             */
-/*   Updated: 2020/09/17 16:35:24 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 17:42:50 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int	ft_printf3(t_flags *flags, char *res)
+{
+	char	*res_cpy;
+	int		count;
+
+	count = 0;
+	if (flags->count == 0)
+	{
+		res_cpy = res;
+		count += put_str(&res, 1);
+		ft_free(&res_cpy);
+	}
+	else
+	{
+		count += ft_atoi(res);
+		ft_free(&res);
+	}
+	return (count);
+}
+
 int	ft_printf2(t_flags *flags, const char *str, va_list vl)
 {
 	char	*res;
-	char	*res_cpy;
 	int		count;
 
 	count = 0;
@@ -33,19 +52,7 @@ int	ft_printf2(t_flags *flags, const char *str, va_list vl)
 			if (*str == 'c')
 				flags->count = 1;
 			if ((res = c_handler(vl, &str, flags)))
-			{
-				if (flags->count == 0) 
-				{
-					res_cpy = res;
-					count += put_str(&res, 1);
-					ft_free(&res_cpy);
-				}
-				else 
-				{
-					count += ft_atoi(res);
-					ft_free(&res);
-				}
-			}
+				count += ft_printf3(flags, res);
 		}
 	}
 	return (count);

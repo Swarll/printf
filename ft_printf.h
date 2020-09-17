@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 11:13:08 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/17 16:15:01 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 17:25:24 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int				put_str(char **str, int choice);
 char			*ft_u_convers(unsigned int nbr, t_flags *flags);
 char			*ft_s_convers(char *str, t_flags *flags);
 char			*ft_i_convers(int i, t_flags *flags);
-char			*ft_c_convers(char c, t_flags *flags, char ***str);
+char			*ft_c_convers(char c, t_flags *flags);
 char			*ft_p_convers(void *ptr, t_flags *flags);
 char			*ft_tx_convers(unsigned long long nbr, t_flags *flags);
 char			*ft_ux_convers(unsigned long long nbr, t_flags *flags);

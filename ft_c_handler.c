@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 15:48:39 by Guillaume         #+#    #+#             */
-/*   Updated: 2020/09/17 15:57:52 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 17:25:16 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	*ft_c_handler2(va_list vl, const char **str, t_flags *flags)
 char	*c_handler(va_list vl, const char **str, t_flags *flags)
 {
 	if (*str && **str && **str == 'c' && ++*str)
-		return (ft_c_convers(va_arg(vl, int), flags, (char ***)&str));
+		return (ft_c_convers(va_arg(vl, int), flags));
 	else if (*str && **str && **str == 's' && ++*str)
 	{
 		if (flags->precision_star == 1 && flags->precision < 0

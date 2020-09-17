@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/22 12:30:58 by Guillaume         #+#    #+#             */
-/*   Updated: 2020/09/11 11:00:59 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 17:24:04 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int		calcul_i(t_flags *flags, int size, char *conv)
 	neg = 0;
 	if (conv[0] == '-')
 		neg = 1;
-	if (flags->wide != 0 && flags->precision_defined == 0 && flags->left_justified == 0 && flags->zero_filled == 0)
+	if (flags->wide != 0 && flags->precision_defined == 0 &&
+	flags->left_justified == 0 && flags->zero_filled == 0)
 		return (flags->wide - size);
 	else if (flags->wide != 0 && flags->wide > flags->precision)
 		return (flags->wide - size + neg);

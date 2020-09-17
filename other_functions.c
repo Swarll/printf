@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 15:53:41 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/17 16:15:09 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 17:23:43 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	initialize_flags(t_flags *flags)
 	flags->count = 0;
 }
 
-char	*other_conv(t_flags	*flags, char *conv)
+char	*other_conv(t_flags *flags, char *conv)
 {
 	char	*res;
 

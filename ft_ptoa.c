@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 17:59:36 by Guillaume         #+#    #+#             */
-/*   Updated: 2020/09/15 10:57:13 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 17:26:59 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char	*ft_ptoa(unsigned long long nbr)
 {
 	char		*res;
 	int			size;
+
 	if (!nbr)
 		return (ft_strdup("0x0"));
 	size = ptoa_int_size(nbr);

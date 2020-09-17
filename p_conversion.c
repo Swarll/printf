@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:23:15 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/17 17:09:08 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 17:39:21 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 char	*ft_p_convers5(t_flags *flags, char *conv, char *res, int size)
 {
-	if (!ft_strncmp("0x0", conv, 3) && !ft_free(&conv))
-	{
-		conv = ft_strdup("0x");
-		size = ft_strlen(conv);
-	}
 	if (flags->wide > size)
 	{
 		res = sp_fill_wide(res, flags);
@@ -59,11 +54,6 @@ char	*ft_p_convers3(t_flags *flags, char *conv, int size)
 
 	if (flags->precision > size)
 		res = conv;
-	// else if (flags->precision == 0 && !ft_strncmp(conv, "0x0", 3))
-	// {
-	// 	ft_free(&conv);
-	// 	res = ft_strdup("0x");
-	// }
 	else
 	{
 		if (flags->precision)
@@ -110,11 +100,12 @@ char	*ft_p_convers(void *ptr, t_flags *flags)
 	char				*res;
 	char				*conv;
 	int					size;
-	unsigned long long	nbr;
 
-	nbr = (unsigned long long)ptr;
-	if (!(conv = ft_ptoa(nbr)))
+	if (!(conv = ft_ptoa((unsigned long long)ptr)))
 		return (NULL);
+	if (!ft_strncmp("0x0", conv, 3) && flags->precision_defined == 1
+	&& !ft_free(&conv))
+		conv = ft_strdup("0x");
 	if ((size = ft_strlen(conv)) && ((flags->precision_defined == 0 && flags->
 	wide != 0) || (flags->wide == 0 && flags->precision_defined == 1)))
 	{

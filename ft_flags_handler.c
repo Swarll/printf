@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 16:05:23 by Guillaume         #+#    #+#             */
-/*   Updated: 2020/09/17 15:08:14 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 17:26:49 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ t_flags	*flags_handler(const char **str, t_flags *flags, va_list vl)
 {
 	while (*str && (**str == '-' || **str == '0'))
 	{
-		if (**str == '-') 
+		if (**str == '-')
 		{
 			flags->left_justified = 1;
 			flags->zero_filled = 0;
