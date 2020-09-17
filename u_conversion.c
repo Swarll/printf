@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:23:34 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/16 11:56:50 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 14:53:04 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ char	*ft_u_convers(unsigned int nbr, t_flags *flags)
 	else if (!(conv = ft_utoa(nbr)))
 		return (NULL);
 	if (flags && (flags->wide || flags->precision) &&
-		(size < flags->wide || size < flags->precision))
+		(size <= flags->wide || size <= flags->precision))
 	{
 		if (!(res = ft_u_convers2(flags, size, conv)))
 			return (NULL);

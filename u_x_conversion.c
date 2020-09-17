@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:22:56 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/16 15:59:14 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 14:52:40 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_ux_convers(unsigned long long nbr, t_flags *flags)
 	else if (!(conv = ft_upper_xtoa(nbr)))
 		return (NULL);
 	if (flags && (flags->wide || flags->precision) &&
-		(size < flags->wide || size < flags->precision))
+		(size <= flags->wide || size <= flags->precision))
 	{
 		if (!(res = common_x_conv(flags, size, conv)))
 			return (NULL);
