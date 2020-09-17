@@ -6,7 +6,7 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 09:22:51 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/16 15:55:44 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 17:08:08 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,14 @@ int main()
 //     ft_printf("FT_PRINTF: {%*c}\n", 0, 0);
 //     printf("PRINTF   : {%-5c}\n", '\0');
 //     ft_printf("FT_PRINTF: {%-5c}\n", '\0');
-printf("PRINTF   :%.*u, %.*x, %.*X\n", a, 0, a, 0, a, 0);
-ft_printf("FT_PRINTF:%.*u, %.*x, %.*X\n", a, 0, a, 0, a, 0);    
+// printf("PRINTF   :%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0);
+// ft_printf("FT_PRINTF:%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0);    
+// // ft_printf("%5%\n");
+// // printf("%5%\n");
+// printf("{%*c}\n", 0, 0);
+// ft_printf("{%*c}\n", 0, 0);
+printf(".pr-->|%-16.p|<--\n", NULL);
+ft_printf(".ft-->|%-16.p|<--\n", NULL);
+printf("pr-->|%-16p|<--\n", NULL);
+ft_printf("ft-->|%-16p|<--\n", NULL);
 }

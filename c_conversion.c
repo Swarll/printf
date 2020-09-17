@@ -6,45 +6,45 @@
 /*   By: grigaux <grigaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:23:02 by grigaux           #+#    #+#             */
-/*   Updated: 2020/09/16 12:33:26 by grigaux          ###   ########.fr       */
+/*   Updated: 2020/09/17 16:32:47 by grigaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*fill_wide(char *res, int i)
+char	*ft_c_convers(char c, t_flags *flags, char ***str)
 {
-	int	j;
+	int count;
 
-	j = 0;
-	while (j < i)
-		res[j++] = ' ';
-	return (res);
-}
-
-char	*ft_c_convers(int c, t_flags *flags, char ***str)
-{
-	char	*res;
-	
-	if (!c)
-		**str = NULL;
+	count = 0;
+	(void)str;
 	if (flags->wide != 0)
 	{
-		if (!(res = malloc(sizeof(char) * (flags->wide + 1))))
-			return (NULL);
-		res[flags->wide] = '\0';
-		res = fill_wide(res, flags->wide);
-		if (flags->wide != 0 && flags->left_justified != 1)
-			res[flags->wide - 1] = c;
+		if (flags->left_justified)
+		{
+			count += 1;
+			write(1, &c, 1);
+			while (count < flags->wide)
+			{
+				write(1, &" ", 1);
+				count += 1;
+			}
+		}
 		else
-			res[0] = c;
+		{
+			while (count < flags->wide - 1)
+			{
+				count += 1;
+				write(1, &" ", 1);
+			}
+			write(1, &c, 1);
+			count += 1;
+		}
 	}
 	else
 	{
-		if (!(res = malloc(sizeof(char) * (2))))
-			return (NULL);
-		res[0] = c;
-		res[1] = 0;
+		write(1, &c, 1);
+		count += 1;
 	}
-	return (res);
+	return (ft_itoa(count));
 }
